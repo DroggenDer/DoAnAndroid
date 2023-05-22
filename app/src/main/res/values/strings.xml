@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Đồ Án Quản Lý Sản Phẩm</string>
+    <dimen name="text_size">17sp</dimen>
+    <dimen name="text_heading_size">30dp</dimen>
+    <dimen name="text_button_size">25dp</dimen>
+    <dimen name="border_button">3dp</dimen>
+    <dimen name="radius">100dp</dimen>
+    <dimen name="padding_button">15dp</dimen>
+    <dimen name="margin_button">20dp</dimen>
+</resources>

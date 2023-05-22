@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <ListView
+        android:id="@+id/simpleListView"
+        android:layout_width="fill_parent"
+        android:layout_height="618dp"
+        android:layout_margin="15dp"
+        android:divider="@color/material_blue_grey_800"
+        android:dividerHeight="1dp"
+        android:footerDividersEnabled="false"
+        android:listSelector="#ffcc66" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_height="wrap_content"
+        >
+        <Button
+            android:id="@+id/btn_Thoat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Thoát"
+            android:textColor="@color/white"
+            style="@style/textViewStyle"
+            android:textAllCaps="false"
+            android:background="@drawable/rounded_gradient_left_views"
+            android:layout_margin="5dp"
+            />
+
+        <Button
+            android:id="@+id/btn_ThemSP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Thêm"
+            style="@style/textViewStyle"
+            android:textAllCaps="false"
+            android:background="@drawable/rounded_gradient_right_views"
+            android:layout_margin="5dp"
+            android:textColor="@color/white"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>

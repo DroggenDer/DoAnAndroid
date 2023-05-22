@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/img_detail"
+            android:scaleType="centerCrop"
+            android:layout_width="250dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="4dp"
+            android:src="@drawable/cfsua"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_DoiHinhAnh"
+            style="@style/textViewStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_bottom_button"
+            android:text="Đổi ảnh"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/img_detail" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:stretchColumns="1">
+
+        <TableRow>
+            <TextView
+                android:text="Mã:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/textViewStyle"/>
+            <EditText
+                android:id="@+id/et_productcode"
+                android:text="SP01"
+                android:height="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="Tên:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/textViewStyle"/>
+            <EditText
+                android:id="@+id/et_productname"
+                android:text="Cà phê sữa"
+                android:height="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                />
+        </TableRow>
+
+        <TableRow>
+            <TextView
+                android:text="Đơn giá:"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/textViewStyle"/>
+            <EditText
+                android:id="@+id/et_productcost"
+                android:text="18000"
+                android:height="50dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                />
+        </TableRow>
+
+    </TableLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_height="wrap_content"
+        >
+        <Button
+            android:id="@+id/btn_XoaSP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:height="50dp"
+            android:text="Xóa SP"
+            style="@style/textViewStyle"
+            android:textAllCaps="false"
+            android:background="@drawable/rounded_gradient_all_views"
+            android:layout_margin="5dp"
+            android:textColor="@color/white"
+            />
+
+        <Button
+            android:id="@+id/btn_CapNhatSP"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:height="50dp"
+            android:text="Cập nhật SP"
+            style="@style/textViewStyle"
+            android:textAllCaps="false"
+            android:background="@drawable/rounded_gradient_all_views"
+            android:layout_margin="5dp"
+            android:textColor="@color/white"
+            />
+
+
+
+    </LinearLayout>
+</LinearLayout>
