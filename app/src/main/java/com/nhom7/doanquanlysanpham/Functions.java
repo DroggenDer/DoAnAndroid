@@ -44,7 +44,7 @@ public class Functions {
         tensp = tensp.toLowerCase().trim();
         for (SanPham sp: arr) {
             String spGoc = removeUnicode(sp.getTen().toLowerCase().trim());
-            if (spGoc.startsWith(tensp))
+            if (spGoc.startsWith(tensp) || sp.getTen().toLowerCase().startsWith(tensp))
                 res.add(sp);
         }
         return res;

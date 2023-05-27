@@ -168,8 +168,17 @@ public class MainActivity extends AppCompatActivity {
                 builder.setMessage("Bạn muốn xóa thiệt hả?").setTitle("Thông báo")
                         .setPositiveButton("Có", new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int id) {
-                                Intent intent = getIntent();
-                                setResult(MainActivity.resultXoa, intent);
+                                try {
+                                    databaseProvider.DeleteData(arr.get(pos).getMa());
+                                    String ten = arr.get(pos).getTen();
+                                    arr.remove(pos);
+                                    sanPhamAdapter.notifyDataSetChanged();
+                                    tvTongSP.setText("Tổng SP: " + arr.size());
+                                    Toast.makeText(MainActivity.this, "Đã xóa thành công " + ten, Toast.LENGTH_SHORT).show();
+                                }
+                                catch (Exception ex){
+                                    Toast.makeText(MainActivity.this, "Xóa thất bại!", Toast.LENGTH_SHORT).show();
+                                }
                             }
                         })
                         .setNegativeButton("Không", new DialogInterface.OnClickListener() {
