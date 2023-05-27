@@ -104,8 +104,10 @@ public class ttchitiet extends AppCompatActivity {
                     .setPositiveButton("Có", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             String dongia = edtDonGia.getText()+"";
-                            byte[] pic = Functions.ConvertImgToArray(imgIcon);
-                            SanPham spMoi = new SanPham(edtMa.getText()+"", edtTen.getText()+"",
+                            byte[] pic =  Functions.ConvertImgToArray(imgIcon);
+                            String maSP = edtMa.getText()+"";
+                            String tenSP = edtTen.getText() + "";
+                            SanPham spMoi = new SanPham(maSP.trim(), tenSP.trim(),
                                     Integer.parseInt(dongia),
                                     sp.getPicDrawable());
                             spMoi.setPic(pic);

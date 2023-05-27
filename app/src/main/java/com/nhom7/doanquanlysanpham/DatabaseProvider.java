@@ -17,10 +17,18 @@ public class DatabaseProvider {
         return database;
     }
 
-    public ArrayList<SanPham> LoadData(){
+    public ArrayList<SanPham> LoadData(int type){
         ArrayList<SanPham> arr = new ArrayList<SanPham>();
         SanPham sp;
-        Cursor c = database.query("sanpham", null, null, null, null, null, null);
+        String sort = null;
+        if (type==0)
+            sort = null;
+        else if (type==1)
+            sort = "ten COLLATE NOCASE ASC";
+        else if (type==2) {
+            sort = "dongia ASC";
+        }
+        Cursor c = database.query("sanpham", null, null, null, null, null, sort);
         c.moveToFirst();
         do {
             sp = new SanPham();
@@ -50,5 +58,10 @@ public class DatabaseProvider {
                 "SET ma=?, ten=?, dongia=?, hinhanh=?" +
                 "WHERE ma=?";
         database.execSQL(sql, new Object[]{sp.getMa(), sp.getTen(), sp.getDongia(), sp.getPic(), maBanDau});
+    }
+
+    public void InsertData(SanPham sp){
+        String sql = "INSERT INTO sanpham VALUES(?, ?, ?, ?)";
+        database.execSQL(sql, new Object[]{sp.getMa(), sp.getTen(), sp.getDongia(), sp.getPic()});
     }
 }

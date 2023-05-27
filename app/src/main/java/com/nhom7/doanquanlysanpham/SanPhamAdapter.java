@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,7 +53,9 @@ public class SanPhamAdapter extends ArrayAdapter {
         TextView cost =  (TextView) view.findViewById(R.id.tv_Dongia);
         ImageView icon = (ImageView) view.findViewById(R.id.icon);
         name.setText(this.arr.get(position).getTen());
-        cost.setText(this.arr.get(position).getDongia()+"vnd");
+        DecimalFormat decimalFormat = new DecimalFormat("#,###");
+        String dongia = decimalFormat.format(this.arr.get(position).getDongia());
+        cost.setText(dongia+"vnd");
         if (this.arr.get(position).getPic()==null)
             icon.setImageResource(Functions.getImageID(this.context, this.arr.get(position).getPicDrawable()));
         else

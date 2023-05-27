@@ -11,12 +11,12 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/img_detail"
+            android:id="@+id/img_themActivity_hinhAnh"
             android:scaleType="centerCrop"
             android:layout_width="250dp"
             android:layout_height="0dp"
             android:layout_marginTop="4dp"
-            android:src="@drawable/cfsua"
+            android:src="@drawable/water"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/btn_DoiHinhAnh"
+            android:id="@+id/btn_themActivity_DoiHinhAnh"
             style="@style/textViewStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
             android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_detail" />
+            app:layout_constraintTop_toBottomOf="@+id/img_themActivity_hinhAnh" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -51,8 +51,8 @@
                 android:layout_height="wrap_content"
                 style="@style/textViewStyle"/>
             <EditText
-                android:id="@+id/et_productcode"
-                android:text="SP01"
+                android:id="@+id/edt_themActivity_productCode"
+                android:hint="Mã SP"
                 android:height="50dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -67,8 +67,8 @@
                 android:layout_height="wrap_content"
                 style="@style/textViewStyle"/>
             <EditText
-                android:id="@+id/et_productname"
-                android:text="Cà phê sữa"
+                android:id="@+id/edt_themActivity_productName"
+                android:hint="Tên SP"
                 android:height="50dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -82,9 +82,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 style="@style/textViewStyle"/>
+
             <EditText
-                android:id="@+id/et_productcost"
-                android:text="18000"
+                android:id="@+id/edt_themActivity_productPrice"
+                android:hint="Đơn giá"
                 android:inputType="number"
                 android:height="50dp"
                 android:layout_width="match_parent"
@@ -101,13 +102,14 @@
         android:weightSum="2"
         android:layout_height="wrap_content"
         >
+
         <Button
-            android:id="@+id/btn_XoaSP"
+            android:id="@+id/btn_ThemSP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:height="50dp"
-            android:text="Xóa SP"
+            android:text="Thêm SP"
             style="@style/textViewStyle"
             android:textAllCaps="false"
             android:background="@drawable/rounded_gradient_all_views"
@@ -116,20 +118,18 @@
             />
 
         <Button
-            android:id="@+id/btn_CapNhatSP"
+            android:id="@+id/btn_themSP_TroVe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:height="50dp"
-            android:text="Cập nhật SP"
+            android:text="Trở về"
             style="@style/textViewStyle"
             android:textAllCaps="false"
             android:background="@drawable/rounded_gradient_all_views"
             android:layout_margin="5dp"
             android:textColor="@color/white"
             />
-
-
 
     </LinearLayout>
 </LinearLayout>

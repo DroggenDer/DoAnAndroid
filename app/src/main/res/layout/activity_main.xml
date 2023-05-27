@@ -15,20 +15,65 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/tvTongSP"
-            android:layout_width="wrap_content"
+        <TableLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            style="@style/textViewStyle"
-            android:text="Tổng SP: 0"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="15dp"/>
+            android:stretchColumns="1"
+            android:layout_marginRight="15dp">
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/textViewStyle"
+                    android:text="Tìm SP:"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"/>
+                <EditText
+                    android:id="@+id/edtTimSP"
+                    style="@style/textViewStyle"
+                    android:hint="Tên SP"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="15dp"/>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:id="@+id/tvTongSP"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/textViewStyle"
+                    android:text="Tổng SP: 0"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_span="2"/>
+            </TableRow>
+
+            <TableRow>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    style="@style/textViewStyle"
+                    android:text="Sắp xếp theo: "
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"/>
+                <Spinner
+                    android:id="@+id/spSort"
+                    style="@style/textViewStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="15dp"/>
+            </TableRow>
+
+        </TableLayout>
 
     <ListView
         android:id="@+id/simpleListView"
         android:layout_width="fill_parent"
-        android:layout_height="618dp"
+        android:layout_height="560dp"
         android:layout_margin="15dp"
         android:divider="@color/material_blue_grey_800"
         android:dividerHeight="1dp"
@@ -41,18 +86,6 @@
         android:weightSum="2"
         android:layout_height="wrap_content"
         >
-        <Button
-            android:id="@+id/btn_Thoat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Thoát"
-            android:textColor="@color/white"
-            style="@style/textViewStyle"
-            android:textAllCaps="false"
-            android:background="@drawable/rounded_gradient_left_views"
-            android:layout_margin="5dp"
-            />
 
         <Button
             android:id="@+id/btn_ThemSP"
@@ -62,9 +95,22 @@
             android:text="Thêm"
             style="@style/textViewStyle"
             android:textAllCaps="false"
-            android:background="@drawable/rounded_gradient_right_views"
+            android:background="@drawable/rounded_gradient_left_views"
             android:layout_margin="5dp"
             android:textColor="@color/white"
+            />
+
+        <Button
+            android:id="@+id/btn_Thoat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Thoát"
+            android:textColor="@color/white"
+            style="@style/textViewStyle"
+            android:textAllCaps="false"
+            android:background="@drawable/rounded_gradient_right_views"
+            android:layout_margin="5dp"
             />
 
     </LinearLayout>

@@ -1,6 +1,7 @@
 package com.nhom7.doanquanlysanpham;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class SanPham implements Serializable {
     String ma = "", ten = "";
@@ -73,5 +74,15 @@ public class SanPham implements Serializable {
     }
 
     public SanPham() {
+    }
+    
+    public int CheckValidSP(ArrayList<SanPham> arr){
+        if (ma=="" || ten=="")
+            return 0;
+        for (SanPham sp: arr) {
+            if (ma.equalsIgnoreCase(sp.getMa()) || ten.equalsIgnoreCase(sp.getTen()))
+                return -1;
+        }
+        return 1;
     }
 }
