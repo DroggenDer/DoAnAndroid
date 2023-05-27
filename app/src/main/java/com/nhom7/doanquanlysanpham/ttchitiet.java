@@ -56,6 +56,8 @@ public class ttchitiet extends AppCompatActivity {
         edtDonGia.setText(sp.getDongia()+"");
         if (sp.getPic()==null)
             imgIcon.setImageResource(Functions.getImageID(getApplicationContext(), sp.getPicDrawable()));
+        else
+            imgIcon.setImageBitmap(Functions.ConvertArrayToBitmap(sp.getPic()));
 
         btnDoiAnh.setOnClickListener(new ButtonDoiAnh());
         btnXoa.setOnClickListener(new ButtonXoaSP());
@@ -102,8 +104,11 @@ public class ttchitiet extends AppCompatActivity {
                     .setPositiveButton("Có", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             String dongia = edtDonGia.getText()+"";
-                            SanPham spMoi = new SanPham(edtMa.getText()+"", edtTen.getText()+"", Integer.parseInt(dongia),
+                            byte[] pic = Functions.ConvertImgToArray(imgIcon);
+                            SanPham spMoi = new SanPham(edtMa.getText()+"", edtTen.getText()+"",
+                                    Integer.parseInt(dongia),
                                     sp.getPicDrawable());
+                            spMoi.setPic(pic);
                             Intent intent = getIntent();
                             intent.putExtra(MainActivity.keyBanDau, maSPBanDau);
                             Bundle bundle = new Bundle();

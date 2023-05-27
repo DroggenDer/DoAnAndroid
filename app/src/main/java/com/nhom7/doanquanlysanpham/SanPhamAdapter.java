@@ -55,6 +55,8 @@ public class SanPhamAdapter extends ArrayAdapter {
         cost.setText(this.arr.get(position).getDongia()+"vnd");
         if (this.arr.get(position).getPic()==null)
             icon.setImageResource(Functions.getImageID(this.context, this.arr.get(position).getPicDrawable()));
+        else
+            icon.setImageBitmap(Functions.ConvertArrayToBitmap(arr.get(position).getPic()));
         return view;
     }
 }

@@ -5,6 +5,8 @@ import static android.database.sqlite.SQLiteDatabase.openOrCreateDatabase;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -12,6 +14,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -27,9 +30,9 @@ public class MainActivity extends AppCompatActivity {
     public final static String keyBanDau = "0706";
     public final static String keySanPhamMoi = "0704";
 
-
+    TextView tvTongSP;
     ListView lv_Products;
-    Button btnThoat;
+    Button btnThoat, btnThem;
     DatabaseProvider databaseProvider;
     ArrayList<SanPham> arr;
     SanPhamAdapter sanPhamAdapter;
@@ -40,7 +43,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         lv_Products = (ListView) findViewById(R.id.simpleListView);
-        btnThoat = findViewById(R.id.btn_Thoat);
+        btnThoat = (Button) findViewById(R.id.btn_Thoat);
+        btnThem = (Button) findViewById(R.id.btn_ThemSP);
+        tvTongSP = (TextView) findViewById(R.id.tvTongSP);
 
         try {
             databaseProvider = new DatabaseProvider();
@@ -55,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         arr = databaseProvider.LoadData();
+        tvTongSP.setText("Tổng SP: " + arr.size());
         sanPhamAdapter = new SanPhamAdapter(this, 0, arr);
         lv_Products.setAdapter(sanPhamAdapter);
 
@@ -71,13 +77,25 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
         btnThoat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setMessage("Bạn muốn thoát thiệt hả?").setTitle("Thông báo")
+                        .setPositiveButton("Có", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("Không", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                Toast.makeText(MainActivity.this, "Tiếp tục", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                builder.create().show();
             }
         });
+        btnThem.setOnClickListener(new ButtonThem());
     }
 
     @Override
@@ -91,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
                     int pos = data.getIntExtra(keyPosition, -1);
                     databaseProvider.DeleteData(sp.getMa());
                     arr.remove(pos);
+                    tvTongSP.setText("Tổng SP: " + arr.size());
                     sanPhamAdapter.notifyDataSetChanged();
                     Toast.makeText(MainActivity.this, "Đã xóa thành công " + sp.getTen(), Toast.LENGTH_SHORT).show();
                 }
@@ -112,6 +131,13 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this, "Cập nhật thất bại!", Toast.LENGTH_SHORT).show();
                 }
             }
+        }
+    }
+
+    public class ButtonThem implements View.OnClickListener{
+        @Override
+        public void onClick(View view) {
+
         }
     }
 }

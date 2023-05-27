@@ -27,7 +27,13 @@ public class DatabaseProvider {
             sp.setMa(c.getString(0));
             sp.setTen(c.getString(1));
             sp.setDongia(c.getInt(2));
-            sp.setPicDrawable(c.getString(3));
+            try{
+                sp.setPicDrawable(c.getString(3));
+            }
+            catch (Exception ex){
+                sp.setPicDrawable("cf");
+                sp.setPic(c.getBlob(3));
+            }
             arr.add(sp);
         }
         while (c.moveToNext());
@@ -41,9 +47,8 @@ public class DatabaseProvider {
 
     public void UpdateData(String maBanDau, SanPham sp){
         String sql = "UPDATE sanpham " +
-                "SET ma='%s', ten='%s', dongia='%d'" +
-                "WHERE ma='%s'";
-        sql = String.format(sql, sp.getMa(), sp.getTen(), sp.getDongia(), maBanDau);
-        database.execSQL(sql);
+                "SET ma=?, ten=?, dongia=?, hinhanh=?" +
+                "WHERE ma=?";
+        database.execSQL(sql, new Object[]{sp.getMa(), sp.getTen(), sp.getDongia(), sp.getPic(), maBanDau});
     }
 }
